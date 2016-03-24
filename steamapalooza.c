@@ -13,28 +13,41 @@ void moveForward(int timeMoving) {
 	motor[rightmotor] = 0;
 }
 
+void moveBackward(int timeMoving) {
+	wait1Msec(250);
+	motor[leftmotor] = -60;
+	motor[rightmotor] = -60;
+	wait1Msec(timeMoving);
+	motor[leftmotor] = 0;
+	motor[rightmotor] = 0;
+}
+
 void openClaw() {
 	wait1Msec(250);
 	motor[clawmotor] = -60;
 	wait1Msec(1000);
+	motor[clawmotor] = 0;
 }
 
 void closeClaw() {
 	wait1Msec(250);
 	motor[clawmotor] = 60;
 	wait1Msec(1000);
+	motor[clawmotor] = 0;
 }
 
 void elevateArm() {
 	wait1Msec(250);
 	motor[armmotor] = 100;
 	wait1Msec(1500);
+	motor[armmotor] = 0;
 }
 
 void lowerArm() {
 	wait1Msec(250);
 	motor[armmotor] = 100;
 	wait1Msec(1500);
+	motor[armmotor] = 0;
 }
 
 void rotate90(){
@@ -42,6 +55,8 @@ void rotate90(){
 	motor[rightmotor] = 60;
 	motor[leftmotor] = -60;
 	wait1Msec(666);
+	motor[rightmotor] = 0;
+	motor[leftmotor] = 0;
 }
 
 void rotate180(){
