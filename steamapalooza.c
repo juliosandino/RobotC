@@ -37,11 +37,11 @@ void lowerArm() {
 	wait1Msec(1500);
 }
 
-	void rotate90(){
-		wait1Msec(250);
-		motor[rightmotor] = 60;
-		motor[leftmotor] = -60;
-		wait1Msec(666);
+void rotate90(){
+	wait1Msec(250);
+	motor[rightmotor] = 60;
+	motor[leftmotor] = -60;
+	wait1Msec(666);
 }
 
 void rotate180(){
