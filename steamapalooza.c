@@ -6,8 +6,8 @@
 
 void moveForward(int timeMoving) {
 	wait1Msec(250);
-	motor[leftmotor] = 60;
-	motor[rightmotor] = 60;
+	motor[leftmotor] = -60;
+	motor[rightmotor] = -60;
 	wait1Msec(timeMoving);
 	motor[leftmotor] = 0;
 	motor[rightmotor] = 0;
