@@ -19,7 +19,7 @@ void moveForward(int timeMoving) {
 void moveBackward(int timeMoving) {
 	wait1Msec(250);
 	motor[leftmotor] = -60;
-	motor[rightmotor] = -60;
+	motor[rightmotor] = -76;
 	wait1Msec(timeMoving);
 	motor[leftmotor] = 0;
 	motor[rightmotor] = 0;
@@ -73,10 +73,10 @@ void rotate270(){
 
 task main() {
 
-	/hile( 1 == 1) {
+	while( 1 == 1) {
 
 		if (vexRT[Btn8D] == 1) {
-			moveForward(5000);
+			moveForward(3000); //the robot gets to the can
 			lowerArm();
 			openClaw();
 			moveForward(300);
@@ -88,7 +88,7 @@ task main() {
 			lowerArm();
 			closeClaw();
 			rotate180();
-			moveForward(2200);
+			moveForward(4300);
 			rotate180();
 			}
 		}
