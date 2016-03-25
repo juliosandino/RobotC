@@ -63,6 +63,7 @@ void rotate180(){
 	rotate90();rotate90(); //genius
 }
 
+// The geniusness of this function is just 10/10
 void rotate270(){
 	rotate90();rotate90();rotate90(); //genius
 }
