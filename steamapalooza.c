@@ -8,7 +8,7 @@
 /*Righ motor is 76 not 60 because the right motor is not aligned properly
  * the value of 76 keeps it moving evenly(or at least kind of close) */
 // moves forward
-// "void" means you are setting a loop up for later
+// "void" is a function
 void moveForward(int timeMoving) {
 	wait1Msec(250);
 	motor[leftmotor] = 60;
