@@ -15,7 +15,7 @@ void moveForward(int timeMoving) {
 	motor[leftmotor] = 0;
 	motor[rightmotor] = 0;
 }
-
+// moves backward
 void moveBackward(int timeMoving) {
 	wait1Msec(250);
 	motor[leftmotor] = -60;
