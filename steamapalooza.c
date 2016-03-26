@@ -7,6 +7,8 @@
 
 /*Righ motor is 76 not 60 because the right motor is not aligned properly
  * the value of 76 keeps it moving evenly(or at least kind of close) */
+// moves forward
+// "void" is a function
 void moveForward(int timeMoving) {
 	wait1Msec(250);
 	motor[leftmotor] = 60;
@@ -16,6 +18,7 @@ void moveForward(int timeMoving) {
 	motor[rightmotor] = 0;
 }
 // moves backward
+// for moving forward and backward julio setup and interger called "timeMoving"
 void moveBackward(int timeMoving) {
 	wait1Msec(250);
 	motor[leftmotor] = -60;
@@ -31,28 +34,28 @@ void openClaw() {
 	wait1Msec(800);
 	motor[clawmotor] = 0;
 }
-
+// closes the robot's claw
 void closeClaw() {
 	wait1Msec(250);
 	motor[clawmotor] = 60;
 	wait1Msec(800);
 	motor[clawmotor] = 0;
 }
-
+// elevates the arm
 void elevateArm() {
 	wait1Msec(250);
 	motor[armmotor] = 100;
 	wait1Msec(500);
 	motor[armmotor] = 0;
 }
-
+// lowers the arm
 void lowerArm() {
 	wait1Msec(250);
 	motor[armmotor] = -100;
 	wait1Msec(1000);
 	motor[armmotor] = 0;
 }
-
+// turns the robot 90*
 void rotate90(){
 	wait1Msec(250);
 	motor[rightmotor] = 60;
@@ -61,7 +64,7 @@ void rotate90(){
 	motor[rightmotor] = 0;
 	motor[leftmotor] = 0;
 }
-
+//
 void rotate180(){
 	rotate90();rotate90(); //genius
 }
