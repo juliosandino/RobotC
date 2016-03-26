@@ -73,26 +73,29 @@ void rotate180(){
 void rotate270(){
 	rotate90();rotate90();rotate90(); //genius
 }
-
+// task main is where the robot executes the code
 task main() {
-
-	while( 1 == 1) {
+ int whatever = 0; 
+	while(true) {
 
 		if (vexRT[Btn8D] == 1) {
-			moveForward(3000); //the robot gets to the can
-			lowerArm();
-			openClaw();
-			moveForward(300);
-			closeClaw();
-			moveForward(2000);
-			elevateArm();
-			openClaw();
-			moveBackward(1000);
-			lowerArm();
-			closeClaw();
-			rotate180();
-			moveForward(4300);
-			rotate180();
+			while(whatever < 3) {
+				moveForward(3000); //the robot gets to the can
+				lowerArm(); 
+				openClaw();
+				moveForward(300);
+				closeClaw();
+				moveForward(2000);
+				elevateArm();
+				openClaw();
+				moveBackward(1000);
+				lowerArm();
+				closeClaw();
+				rotate180();
+				moveForward(4300);
+				rotate180();
+				whatever++;
+				}
 			}
 		}
 
