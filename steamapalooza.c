@@ -24,7 +24,7 @@ void moveBackward(int timeMoving) {
 	motor[leftmotor] = 0;
 	motor[rightmotor] = 0;
 }
-
+// opens claw duh
 void openClaw() {
 	wait1Msec(250);
 	motor[clawmotor] = -60;
