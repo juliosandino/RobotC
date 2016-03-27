@@ -64,37 +64,36 @@ void rotate90(){
 	motor[rightmotor] = 0;
 	motor[leftmotor] = 0;
 }
-//
+//rotates 180*
 void rotate180(){
-	rotate90();rotate90(); //genius
+	rotate90();rotate90(); //genius because instead of writing the motors to move, just add two of the variable "rotate90"
 }
 
-// The geniusness of this function is just 10/10
+// "The geniusness of this function is just 9.8/10"- IGN
 void rotate270(){
 	rotate90();rotate90();rotate90(); //genius
 }
 // task main is where the robot executes the code
 task main() {
  int whatever = 0; 
-	while(true) {
+	while(true) { 
 
 		if (vexRT[Btn8D] == 1) {
-			while(whatever < 3) {
-				moveForward(3000); //the robot gets to the can
-				lowerArm(); 
+			while(whatever < 3) {// runs 3 times
+				moveForward(3000); //the robot moves forward for 3 secs
 				openClaw();
 				moveForward(300);
-				closeClaw();
-				moveForward(2000);
+				closeClaw(); // gets the can
+				moveForward(2000); 
 				elevateArm();
-				openClaw();
+				openClaw(); // throws away can
 				moveBackward(1000);
 				lowerArm();
 				closeClaw();
 				rotate180();
 				moveForward(4300);
-				rotate180();
-				whatever++;
+				rotate180(); // returns to starting posistion in line 83
+				whatever++; // adds the value of 1 to the interger whatever until it equals 3 (line 82)
 				}
 			}
 		}
