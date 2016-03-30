@@ -105,20 +105,24 @@ task main() {
 			}
 
 		//Arm control
-		if (vexRT[Btn5D] == 1) {
-			motor[armmotor] = 100;
+		if (vexRT[Btn5D] == 1)
+			{
+				motor[armmotor] = 100;
 			}
-		else if (vexRT[Btn6D] == 1) {
-			motor[armmotor] = -100;
+		else if (vexRT[Btn6D] == 1)
+			{
+				motor[armmotor] = -100;
 			}
 		else {motor[armmotor] = 0;}
 
 		//Claw control
-		if (vexRT[Btn5U] == 1) {
-			motor[clawmotor] = 100;
+		if (vexRT[Btn5U] == 1)
+			{
+				motor[clawmotor] = 100;
 			}
-		else if (vexRT[Btn6U] == 1) {
-			motor[clawmotor] = -100;
+		else if (vexRT[Btn6U] == 1)
+			{
+				motor[clawmotor] = -100;
 			}
 		else {motor[clawmotor] = 0;}
 
