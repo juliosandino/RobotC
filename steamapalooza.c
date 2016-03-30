@@ -42,10 +42,10 @@ void closeClaw() {
 	motor[clawmotor] = 0;
 }
 // elevates the arm
-void elevateArm() {
+void elevateArm(int timeMoving) {
 	wait1Msec(250);
 	motor[armmotor] = 100;
-	wait1Msec(500);
+	wait1Msec(timeMoving);
 	motor[armmotor] = 0;
 }
 // lowers the arm
@@ -75,27 +75,55 @@ void rotate270(){
 }
 // task main is where the robot executes the code
 task main() {
- int whatever = 0; 
-	while(true) { 
+ //int whatever = 0;
+	while(true) {
 
 		if (vexRT[Btn8D] == 1) {
-			while(whatever < 3) {// runs 3 times
-				moveForward(3000); //the robot moves forward for 3 secs
-				openClaw();
-				moveForward(300);
-				closeClaw(); // gets the can
-				moveForward(2000); 
-				elevateArm();
-				openClaw(); // throws away can
-				moveBackward(1000);
-				lowerArm();
-				closeClaw();
-				rotate180();
-				moveForward(4300);
-				rotate180(); // returns to starting posistion in line 83
-				whatever++; // adds the value of 1 to the interger whatever until it equals 3 (line 82)
+			//while(whatever < 3) {// runs 3 times
+				moveForward(2000); //the robot moves forward for 3 secs
+				if (vexRT[Btn8U] == 1) {
+						openClaw();
 				}
+				else {
+					openClaw();
+					moveForward(300);
+					closeClaw(); // gets the can
+					elevateArm(100);
+					moveForward(2000);
+					elevateArm(400);
+					moveForward(200);
+					openClaw(); // throws away can
+					moveBackward(1000);
+					lowerArm();
+					closeClaw();
+					rotate180();
+					moveForward(3300);
+					rotate180(); // returns to starting posistion in line 83
+					//whatever++; // adds the value of 1 to the interger whatever until it equals 3 (line 82)
+					//}
+					}
 			}
-		}
 
+		//Arm control
+		if (vexRT[Btn5D] == 1) {
+			motor[armmotor] = 100;
+			}
+		else if (vexRT[Btn6D] == 1) {
+			motor[armmotor] = -100;
+			}
+		else {motor[armmotor] = 0;}
+
+		//Claw control
+		if (vexRT[Btn5U] == 1) {
+			motor[clawmotor] = 100;
+			}
+		else if (vexRT[Btn6U] == 1) {
+			motor[clawmotor] = -100;
+			}
+		else {motor[clawmotor] = 0;}
+
+		//driving controls
+		motor[leftmotor] = vexRT[Ch3] / 2;
+    motor[rightmotor] = vexRT[Ch2] / 2;
 	}
+}
