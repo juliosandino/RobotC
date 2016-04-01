@@ -9,20 +9,20 @@
  * the value of 76 keeps it moving evenly(or at least kind of close) */
 // moves forward
 // "void" is a function
-void moveForward(int timeMoving) {
+void moveForward(int timeMoving, int speed) {
 	wait1Msec(250);
-	motor[leftmotor] = 60;
-	motor[rightmotor] = 76;
+	motor[leftmotor] = speed;
+	motor[rightmotor] = speed * 1.2;
 	wait1Msec(timeMoving);
 	motor[leftmotor] = 0;
 	motor[rightmotor] = 0;
 }
 // moves backward
 // for moving forward and backward julio setup and interger called "timeMoving"
-void moveBackward(int timeMoving) {
+void moveBackward(int timeMoving, int speed) {
 	wait1Msec(250);
-	motor[leftmotor] = -60;
-	motor[rightmotor] = -76;
+	motor[leftmotor] = -speed;
+	motor[rightmotor] = -speed;
 	wait1Msec(timeMoving);
 	motor[leftmotor] = 0;
 	motor[rightmotor] = 0;
@@ -60,7 +60,7 @@ void rotate90(){
 	wait1Msec(250);
 	motor[rightmotor] = 60;
 	motor[leftmotor] = -60;
-	wait1Msec(925);
+	wait1Msec(930);
 	motor[rightmotor] = 0;
 	motor[leftmotor] = 0;
 }
@@ -80,24 +80,24 @@ task main() {
 
 		if (vexRT[Btn8D] == 1) {
 			//while(whatever < 3) {// runs 3 times
-				moveForward(2000); //the robot moves forward for 3 secs
+				moveForward(1000, 60); //the robot moves forward for 3 secs
 				if (vexRT[Btn8U] == 1) {
 						openClaw();
 				}
 				else {
 					openClaw();
-					moveForward(300);
+					moveForward(1000, 30);
 					closeClaw(); // gets the can
 					elevateArm(100);
-					moveForward(2000);
+					moveForward(1000, 60);
 					elevateArm(400);
-					moveForward(200);
+					moveForward(400, 60);
 					openClaw(); // throws away can
-					moveBackward(1000);
+					moveBackward(1000, 30);
 					lowerArm();
 					closeClaw();
 					rotate180();
-					moveForward(3300);
+					moveForward(2000, 60);
 					rotate180(); // returns to starting posistion in line 83
 					//whatever++; // adds the value of 1 to the interger whatever until it equals 3 (line 82)
 					//}
